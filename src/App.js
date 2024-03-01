@@ -1,25 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import randomWord from "random-words";
+import {useState} from "react";
+import { Preview } from './Components/Preview';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [words, setWords] = useState(randomWord({exactly: 600, maxLength: 5}));
+    const [userWords, setUserWords] = useState([]);
+
+
+
+    let inputHandler = (text) => {
+        let v = text.replaceAll("\n", " ")
+        setUserWords(v.split(" " || "\n"));
+    }
+
+    let getWords = () => {
+        return words.join(" ");
+    }
+    return (
+        <div className="App">
+            <Preview words={getWords()} userWords={userWords.join(" ")} inputHandler={inputHandler} />
+        </div>
+    );
 }
 
 export default App;

@@ -1,38 +1,92 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
   text-align: center;
+  color: white;
+  user-select: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+::-moz-selection { /* Code for Firefox */
+  background: transparent;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+::selection {
+  background: transparent;
 }
 
-.App-header {
-  background-color: #282c34;
+html, body {
+  font-family: monospace, SansSerif;
+}
+
+body{
+  background-color: black;
   min-height: 100vh;
+}
+.App {
+  padding: 100px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.input_text{
+  font-size: 2vw;
+  color: gray;
+  word-break: keep-all;
+  text-align: left;
+  height: 200px;
+  max-height: 185px;
+  overflow: hidden;
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input_text span {
+  color: gray;
+}
+
+.preview{
+  position: relative;
+  max-height: 185px;
+  overflow: hidden;
+}
+
+.input {
+  border: 0;
+  border-color: transparent;
+  resize:none;
+  position: absolute;
+  z-index: 1;
+  left: 0%;
+  bottom: 46%;
+  color: transparent;
+  background-color: transparent;
+  font-size: 2vw;
+  height: 100px;
+  max-height: 185px;
+  width: 100%;
+  text-align: left;
+  font-family: monospace, SansSerif;
+  overflow: hidden;
+  caret-color: white;
+  outline: none;
+}
+
+.input::placeholder, .input::-moz-placeholder{
+    font-size: 2vw;
+    text-align: left;
+    white-space:pre-line;
+    position: absolute;
+    top: 0%;
+    transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -o-transform: translateY(0%);
+}
+
+.input:focus, .input::-moz-focus-inner{
+  border: 0;
+  outline: none;
 }
